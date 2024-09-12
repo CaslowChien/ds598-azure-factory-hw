@@ -1,0 +1,9 @@
+{
+	"name": "caslowDataFactoryds598",
+	"location": "eastus2",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "f33ba747-f917-4c93-a7ae-45ddb05d6d65",
+		"tenantId": "d57d32cc-c121-488f-b07b-dfe705680c71"
+	}
+}

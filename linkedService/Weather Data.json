@@ -2,6 +2,28 @@
 	"name": "Weather Data",
 	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
+		"parameters": {
+			"lat": {
+				"type": "float",
+				"defaultValue": 42.361145
+			},
+			"lon": {
+				"type": "float",
+				"defaultValue": -71.057083
+			},
+			"start": {
+				"type": "int",
+				"defaultValue": 1725148800
+			},
+			"end": {
+				"type": "int",
+				"defaultValue": 1725235200
+			},
+			"appid": {
+				"type": "string",
+				"defaultValue": "92c446e2d7d7a836670233d328dbc302"
+			}
+		},
 		"annotations": [],
 		"type": "HttpServer",
 		"typeProperties": {
@@ -9,7 +31,7 @@
 			"enableServerCertificateValidation": true,
 			"authenticationType": "Basic",
 			"userName": "Caslow",
-			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDgwMjcxMTgyLUM0QjUtNEU3QS1CNEU3LTJDNkI4NUIyRDgxOV80Yzc4ZTU4Mi00ZjdiLTRkOWQtYmY0NC0xNmZjOTYyYzFmYWMiDQp9"
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDgwMjcxMTgyLUM0QjUtNEU3QS1CNEU3LTJDNkI4NUIyRDgxOV85OTUwOWYxNC00M2UwLTRiMTUtYTllYS1kNjZhNzk1YzUwMGUiDQp9"
 		}
 	}
 }

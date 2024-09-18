@@ -1,0 +1,31 @@
+{
+	"name": "Json1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Weather Data",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"lat": 42.361145,
+				"lon": -71.057083,
+				"start": {
+					"value": "div(ticks(addDays(addDays(utcNow(),mul(-7, item())), -7)),10000000)",
+					"type": "Expression"
+				},
+				"end": {
+					"value": "ticks(addDays(utcNow(),mul(-7, item())), -7)",
+					"type": "Expression"
+				},
+				"appid": "92c446e2d7d7a836670233d328dbc302"
+			}
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": "data/2.5/history/city?lat=@{dataset().lat}&lon=@{data set().lon}&type=@{dataset().dataType}&start=@{dataset HW2: Historical Data Ingestion 11 ().start}&end=@{dataset().end}&appid=@{dataset().appi d}"
+			}
+		},
+		"schema": {}
+	}
+}

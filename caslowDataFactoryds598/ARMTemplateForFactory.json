@@ -68,7 +68,7 @@
 						"userProperties": [],
 						"typeProperties": {
 							"items": {
-								"value": "@range(0,52)",
+								"value": "@range(0,2)",
 								"type": "Expression"
 							},
 							"activities": [
@@ -114,11 +114,11 @@
 												"lat": 42.361145,
 												"lon": -71.057083,
 												"start": {
-													"value": "@div(sub(ticks(addDays(addDays(utcNow(), mul(-7, item())), -7)), 18000), 10000000)",
+													"value": "@div(sub(ticks(addDays(addDays(utcNow(), mul(-6, item())), -7)), 18000), 10000000)",
 													"type": "Expression"
 												},
 												"end": {
-													"value": "@div(sub(ticks(addDays(utcNow(), mul(-7, item()))), 18000), 10000000)",
+													"value": "@div(sub(ticks(addDays(utcNow(), mul(-6, item()))), 18000), 10000000)",
 													"type": "Expression"
 												},
 												"appid": {

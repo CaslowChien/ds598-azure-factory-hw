@@ -130,7 +130,7 @@
 													"type": "Expression"
 												},
 												"appid": {
-													"value": "@activity('Web1').ouput.value",
+													"value": "@activity('Web1').output.value",
 													"type": "Expression"
 												}
 											}
@@ -462,7 +462,10 @@
 													"value": "@div(sub(ticks(addDays(utcNow(), -365)), 18000), 10000000)",
 													"type": "Expression"
 												},
-												"appid": "@activity('Web1').ouput.value"
+												"appid": {
+													"value": "@activity('Web1').output.value",
+													"type": "Expression"
+												}
 											}
 										}
 									],

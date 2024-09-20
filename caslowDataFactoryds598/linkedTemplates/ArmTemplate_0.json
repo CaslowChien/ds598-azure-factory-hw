@@ -387,7 +387,7 @@
 							"method": "GET",
 							"headers": {},
 							"url": {
-								"value": "https://caslow.vault.azure.net/secrets/OpenWeather/api-version=7.0",
+								"value": "https://caslow.vault.azure.net/secrets/OpenWeather?api-version=7.0",
 								"type": "Expression"
 							},
 							"authentication": {
@@ -428,7 +428,10 @@
 						"typeProperties": {
 							"method": "GET",
 							"headers": {},
-							"url": "https://caslow.vault.azure.net/secrets/OpenWeather/api-version=7.0",
+							"url": {
+								"value": "https://caslow.vault.azure.net/secrets/OpenWeather?api-version=7.0",
+								"type": "Expression"
+							},
 							"authentication": {
 								"type": "MSI",
 								"resource": "https://vault.azure.net"

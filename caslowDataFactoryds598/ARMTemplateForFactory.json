@@ -111,8 +111,8 @@
 											"referenceName": "Json1",
 											"type": "DatasetReference",
 											"parameters": {
-												"lat": 42.361145,
-												"lon": -71.057083,
+												"lat": 42.3601,
+												"lon": -71.0589,
 												"start": {
 													"value": "@div(sub(ticks(addDays(addDays(utcNow(), mul(-6, item())), -7)), 18000), 10000000)",
 													"type": "Expression"

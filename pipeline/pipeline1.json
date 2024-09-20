@@ -69,7 +69,10 @@
 											"value": "@div(sub(ticks(addDays(utcNow(), mul(-7, item()))), 18000), 10000000)",
 											"type": "Expression"
 										},
-										"appid": "92c446e2d7d7a836670233d328dbc302"
+										"appid": {
+											"value": "@activity('Web1').ouput.value",
+											"type": "Expression"
+										}
 									}
 								}
 							],
@@ -97,7 +100,10 @@
 				"userProperties": [],
 				"typeProperties": {
 					"method": "GET",
-					"url": "https://caslow/secrets/OpenWeatherAPIKey? api-version=7.0",
+					"url": {
+						"value": "https://caslow.vault.azure.net/secrets/OpenWeather/api-version=7.0",
+						"type": "Expression"
+					},
 					"authentication": {
 						"type": "MSI",
 						"resource": "https://vault.azure.net"

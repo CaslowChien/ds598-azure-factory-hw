@@ -19,10 +19,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'credential' of 'GitHubcaslow'"
 		},
-		"Weather Data_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'Weather Data'"
-		},
 		"Air Pollution Data_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "http://api.openweathermap.org/ "
@@ -46,10 +42,6 @@
 		"Weather Data_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://history.openweathermap.org/ "
-		},
-		"Weather Data_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "Caslow"
 		}
 	},
 	"variables": {
@@ -228,10 +220,10 @@
 						"defaultValue": -71.057083
 					},
 					"start": {
-						"type": "int"
+						"type": "string"
 					},
 					"end": {
-						"type": "int"
+						"type": "string"
 					},
 					"appid": {
 						"type": "string"
@@ -327,39 +319,12 @@
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"parameters": {
-					"lat": {
-						"type": "float",
-						"defaultValue": 42.361145
-					},
-					"lon": {
-						"type": "float",
-						"defaultValue": -71.057083
-					},
-					"start": {
-						"type": "int",
-						"defaultValue": 1725148800
-					},
-					"end": {
-						"type": "int",
-						"defaultValue": 1725235200
-					},
-					"appid": {
-						"type": "string",
-						"defaultValue": "92c446e2d7d7a836670233d328dbc302"
-					}
-				},
 				"annotations": [],
 				"type": "HttpServer",
 				"typeProperties": {
 					"url": "[parameters('Weather Data_properties_typeProperties_url')]",
 					"enableServerCertificateValidation": true,
-					"authenticationType": "Basic",
-					"userName": "[parameters('Weather Data_properties_typeProperties_userName')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('Weather Data_password')]"
-					}
+					"authenticationType": "Anonymous"
 				}
 			},
 			"dependsOn": []

@@ -14,9 +14,6 @@
 		"GitHubcaslow_credential": {
 			"value": ""
 		},
-		"Weather Data_password": {
-			"value": ""
-		},
 		"Air Pollution Data_properties_typeProperties_url": {
 			"value": "http://api.openweathermap.org/ "
 		},
@@ -34,9 +31,6 @@
 		},
 		"Weather Data_properties_typeProperties_url": {
 			"value": "https://history.openweathermap.org/ "
-		},
-		"Weather Data_properties_typeProperties_userName": {
-			"value": "Caslow"
 		},
 		"containerUri": {
 			"value": ""

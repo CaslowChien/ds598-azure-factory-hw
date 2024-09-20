@@ -19,10 +19,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'credential' of 'GitHubcaslow'"
 		},
-		"Weather Data_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'Weather Data'"
-		},
 		"Air Pollution Data_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "http://api.openweathermap.org/ "
@@ -46,10 +42,6 @@
 		"Weather Data_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://history.openweathermap.org/ "
-		},
-		"Weather Data_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "Caslow"
 		},
 		"containerUri": {
 			"type": "string",
@@ -87,9 +79,6 @@
 					"GitHubcaslow_credential": {
 						"value": "[parameters('GitHubcaslow_credential')]"
 					},
-					"Weather Data_password": {
-						"value": "[parameters('Weather Data_password')]"
-					},
 					"Air Pollution Data_properties_typeProperties_url": {
 						"value": "[parameters('Air Pollution Data_properties_typeProperties_url')]"
 					},
@@ -107,9 +96,6 @@
 					},
 					"Weather Data_properties_typeProperties_url": {
 						"value": "[parameters('Weather Data_properties_typeProperties_url')]"
-					},
-					"Weather Data_properties_typeProperties_userName": {
-						"value": "[parameters('Weather Data_properties_typeProperties_userName')]"
 					}
 				}
 			},

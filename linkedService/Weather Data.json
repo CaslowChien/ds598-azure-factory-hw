@@ -1,28 +1,6 @@
 {
 	"name": "Weather Data",
 	"properties": {
-		"parameters": {
-			"lat": {
-				"type": "float",
-				"defaultValue": 42.361145
-			},
-			"lon": {
-				"type": "float",
-				"defaultValue": -71.057083
-			},
-			"start": {
-				"type": "int",
-				"defaultValue": 1725148800
-			},
-			"end": {
-				"type": "int",
-				"defaultValue": 1725235200
-			},
-			"appid": {
-				"type": "string",
-				"defaultValue": "92c446e2d7d7a836670233d328dbc302"
-			}
-		},
 		"annotations": [],
 		"type": "HttpServer",
 		"typeProperties": {

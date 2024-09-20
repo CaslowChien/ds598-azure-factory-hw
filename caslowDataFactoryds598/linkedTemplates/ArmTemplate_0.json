@@ -132,28 +132,6 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Bronze')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureDataLakeStorage1",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "Json",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation"
-					}
-				},
-				"schema": {}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorage1')]"
-			]
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/Json1')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -231,7 +209,7 @@
 					"location": {
 						"type": "HttpServerLocation",
 						"relativeUrl": {
-							"value": "http://api.openweathermap.org/data/2.5/air_pollution/history?lat=dataset().lat&lon=dataset().lon&start=dataset().start&end=dataset().end&appid=dataset().appid",
+							"value": "data/2.5/air_pollution/history?lat=@{dataset().lat}&lon=@{dataset().lon}&start=@{dataset().start}&end=@{dataset().end}&appid=@{dataset().appid}",
 							"type": "Expression"
 						}
 					}
@@ -240,6 +218,28 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/Air Pollution Data')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Bronze')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureDataLakeStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Json",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation"
+					}
+				},
+				"schema": {}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorage1')]"
 			]
 		},
 		{
@@ -262,7 +262,7 @@
 						"userProperties": [],
 						"typeProperties": {
 							"items": {
-								"value": "@range(0,2)",
+								"value": "@range(0,52)",
 								"type": "Expression"
 							},
 							"activities": [

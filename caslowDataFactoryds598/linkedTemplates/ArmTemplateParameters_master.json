@@ -1,0 +1,48 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "caslowDataFactoryds598"
+		},
+		"Air Pollution Data_password": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"GitHubcaslow_credential": {
+			"value": ""
+		},
+		"Weather Data_password": {
+			"value": ""
+		},
+		"Air Pollution Data_properties_typeProperties_url": {
+			"value": "http://api.openweathermap.org/ "
+		},
+		"Air Pollution Data_properties_typeProperties_userName": {
+			"value": "Caslow"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://caslowds598storage.dfs.core.windows.net/"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://caslow.vault.azure.net/"
+		},
+		"GitHubcaslow_properties_typeProperties_username": {
+			"value": "caslow"
+		},
+		"Weather Data_properties_typeProperties_url": {
+			"value": "https://history.openweathermap.org/ "
+		},
+		"Weather Data_properties_typeProperties_userName": {
+			"value": "Caslow"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

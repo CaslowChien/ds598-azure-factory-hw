@@ -1,0 +1,38 @@
+{
+	"name": "Json2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Air Pollution Data",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"lat": {
+				"type": "float"
+			},
+			"lon": {
+				"type": "float"
+			},
+			"start": {
+				"type": "int"
+			},
+			"end": {
+				"type": "int"
+			},
+			"appid": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": {
+					"value": "http://api.openweathermap.org/data/2.5/air_pollution/history?lat=dataset().lat&lon=dataset().lon&start=dataset().start&end=dataset().end&appid=dataset().appid",
+					"type": "Expression"
+				}
+			}
+		},
+		"schema": {}
+	}
+}

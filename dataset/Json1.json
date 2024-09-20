@@ -19,10 +19,10 @@
 				"defaultValue": -71.057083
 			},
 			"start": {
-				"type": "int"
+				"type": "string"
 			},
 			"end": {
-				"type": "int"
+				"type": "string"
 			},
 			"appid": {
 				"type": "string"

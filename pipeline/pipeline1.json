@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "52",
+						"value": "@range(0,52)",
 						"type": "Expression"
 					},
 					"activities": [
@@ -59,8 +59,8 @@
 									"referenceName": "Json1",
 									"type": "DatasetReference",
 									"parameters": {
-										"lon": -71.057083,
-										"end": "ticks(addDays(utcNow(),mul(-7, item())), -7)"
+										"lat": 42.361145,
+										"lon": -71.057083
 									}
 								}
 							],

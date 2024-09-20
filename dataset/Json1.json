@@ -6,16 +6,7 @@
 			"type": "LinkedServiceReference",
 			"parameters": {
 				"lat": 42.361145,
-				"lon": -71.057083,
-				"start": {
-					"value": "div(sub(ticks(addDays(addDays(utcNow(),mul(-7, item())), -7)), 18000),10000000)",
-					"type": "Expression"
-				},
-				"end": {
-					"value": "div(sub(ticks(addDays(utcNow(),mul(-7, item())), -7), 18000),10000000)",
-					"type": "Expression"
-				},
-				"appid": "92c446e2d7d7a836670233d328dbc302"
+				"lon": -71.057083
 			}
 		},
 		"parameters": {
@@ -26,18 +17,6 @@
 			"lon": {
 				"type": "float",
 				"defaultValue": -71.057083
-			},
-			"start": {
-				"type": "int",
-				"defaultValue": "div(sub(ticks(addDays(addDays(utcNow(),mul(-7, item())), -7)), 18000),10000000)"
-			},
-			"end": {
-				"type": "int",
-				"defaultValue": "div(sub(ticks(addDays(utcNow(),mul(-7, item())), -7), 18000),10000000)"
-			},
-			"appid": {
-				"type": "string",
-				"defaultValue": "92c446e2d7d7a836670233d328dbc302"
 			}
 		},
 		"annotations": [],
@@ -46,7 +25,7 @@
 			"location": {
 				"type": "HttpServerLocation",
 				"relativeUrl": {
-					"value": "data/2.5/history/city?lat=dataset().lat&lon=dataset().lon&type=hour&start=dataset().start&end=dataset().end&appid=dataset().appid",
+					"value": "data/2.5/history/city?lat=dataset().lat&lon=dataset().lon&start=dataset().start&end=dataset().end&appid=dataset().appid",
 					"type": "Expression"
 				}
 			}

@@ -17,6 +17,15 @@
 			"lon": {
 				"type": "float",
 				"defaultValue": -71.057083
+			},
+			"start": {
+				"type": "int"
+			},
+			"end": {
+				"type": "int"
+			},
+			"appid": {
+				"type": "string"
 			}
 		},
 		"annotations": [],

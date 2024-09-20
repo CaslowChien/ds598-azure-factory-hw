@@ -60,7 +60,15 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"lat": 42.361145,
-										"lon": -71.057083
+										"lon": -71.057083,
+										"start": {
+											"value": "@sub(ticks(addDays(addDays(utcNow(), mul(-7, item())), -7)), 18000)",
+											"type": "Expression"
+										},
+										"end": {
+											"value": "@sub(ticks(addDays(utcNow(), mul(-7, item()))), 18000)",
+											"type": "Expression"
+										}
 									}
 								}
 							],

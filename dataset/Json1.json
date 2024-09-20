@@ -3,11 +3,7 @@
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "Weather Data",
-			"type": "LinkedServiceReference",
-			"parameters": {
-				"lat": 42.361145,
-				"lon": -71.057083
-			}
+			"type": "LinkedServiceReference"
 		},
 		"parameters": {
 			"lat": {
@@ -26,6 +22,10 @@
 			},
 			"appid": {
 				"type": "string"
+			},
+			"datatype": {
+				"type": "string",
+				"defaultValue": "hour"
 			}
 		},
 		"annotations": [],

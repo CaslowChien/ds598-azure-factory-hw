@@ -124,7 +124,8 @@
 												"appid": {
 													"value": "@activity('Web1').output.value",
 													"type": "Expression"
-												}
+												},
+												"datatype": "hour"
 											}
 										}
 									],
@@ -204,11 +205,7 @@
 			"properties": {
 				"linkedServiceName": {
 					"referenceName": "Weather Data",
-					"type": "LinkedServiceReference",
-					"parameters": {
-						"lat": 42.361145,
-						"lon": -71.057083
-					}
+					"type": "LinkedServiceReference"
 				},
 				"parameters": {
 					"lat": {
@@ -227,6 +224,10 @@
 					},
 					"appid": {
 						"type": "string"
+					},
+					"datatype": {
+						"type": "string",
+						"defaultValue": "hour"
 					}
 				},
 				"annotations": [],
@@ -361,8 +362,8 @@
 						}
 					},
 					{
-						"name": "ForEach1",
-						"type": "ForEach",
+						"name": "Copy data2",
+						"type": "Copy",
 						"dependsOn": [
 							{
 								"activity": "Web1",
@@ -371,79 +372,56 @@
 								]
 							}
 						],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
 						"userProperties": [],
 						"typeProperties": {
-							"items": {
-								"value": "@range(0, 365)",
-								"type": "Expression"
-							},
-							"activities": [
-								{
-									"name": "Copy data1",
-									"type": "Copy",
-									"dependsOn": [],
-									"policy": {
-										"timeout": "0.12:00:00",
-										"retry": 0,
-										"retryIntervalInSeconds": 30,
-										"secureOutput": false,
-										"secureInput": false
-									},
-									"userProperties": [],
-									"typeProperties": {
-										"source": {
-											"type": "JsonSource",
-											"storeSettings": {
-												"type": "HttpReadSettings",
-												"requestMethod": "GET"
-											},
-											"formatSettings": {
-												"type": "JsonReadSettings"
-											}
-										},
-										"sink": {
-											"type": "JsonSink",
-											"storeSettings": {
-												"type": "AzureBlobFSWriteSettings"
-											},
-											"formatSettings": {
-												"type": "JsonWriteSettings"
-											}
-										},
-										"enableStaging": false
-									},
-									"inputs": [
-										{
-											"referenceName": "Json2",
-											"type": "DatasetReference",
-											"parameters": {
-												"lat": 42.361145,
-												"lon": -71.057083,
-												"start": {
-													"value": "@div(sub(ticks(utcNow()), 18000), 10000000)",
-													"type": "Expression"
-												},
-												"end": {
-													"value": "@div(sub(ticks(addDays(utcNow(), -365)), 18000), 10000000)",
-													"type": "Expression"
-												},
-												"appid": {
-													"value": "@activity('Web1').output.value",
-													"type": "Expression"
-												}
-											}
-										}
-									],
-									"outputs": [
-										{
-											"referenceName": "Bronze",
-											"type": "DatasetReference",
-											"parameters": {}
-										}
-									]
+							"source": {
+								"type": "JsonSource",
+								"storeSettings": {
+									"type": "HttpReadSettings",
+									"requestMethod": "GET"
+								},
+								"formatSettings": {
+									"type": "JsonReadSettings"
 								}
-							]
-						}
+							},
+							"sink": {
+								"type": "JsonSink",
+								"storeSettings": {
+									"type": "AzureBlobFSWriteSettings"
+								},
+								"formatSettings": {
+									"type": "JsonWriteSettings"
+								}
+							},
+							"enableStaging": false
+						},
+						"inputs": [
+							{
+								"referenceName": "Json2",
+								"type": "DatasetReference",
+								"parameters": {
+									"lat": 42.361145,
+									"lon": -71.057083,
+									"start": "@div(sub(ticks(utcNow()), 18000), 10000000)",
+									"end": "@div(sub(ticks(addDays(utcNow(), -365)), 18000), 10000000)",
+									"appid": "@activity('Web1').output.value"
+								}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "Bronze",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
 					}
 				],
 				"policy": {

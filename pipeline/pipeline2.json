@@ -17,7 +17,7 @@
 				"typeProperties": {
 					"method": "GET",
 					"url": {
-						"value": "https://caslow.vault.azure.net/secrets/OpenWeather/api-version=7.0",
+						"value": "https://caslow.vault.azure.net/secrets/OpenWeather?api-version=7.0",
 						"type": "Expression"
 					},
 					"authentication": {

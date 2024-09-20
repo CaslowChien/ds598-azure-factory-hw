@@ -7,12 +7,10 @@
 		},
 		"parameters": {
 			"lat": {
-				"type": "float",
-				"defaultValue": 42.361145
+				"type": "float"
 			},
 			"lon": {
-				"type": "float",
-				"defaultValue": -71.057083
+				"type": "float"
 			},
 			"start": {
 				"type": "string"
@@ -24,8 +22,7 @@
 				"type": "string"
 			},
 			"dataType": {
-				"type": "string",
-				"defaultValue": "hour"
+				"type": "string"
 			}
 		},
 		"annotations": [],

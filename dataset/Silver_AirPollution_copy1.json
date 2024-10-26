@@ -1,5 +1,5 @@
 {
-	"name": "Silver_AirPollution",
+	"name": "Silver_AirPollution_copy1",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorage1",
@@ -10,8 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "AirPollution_Transformed",
-				"folderPath": "2.5",
+				"folderPath": "2.5/silver",
 				"fileSystem": "data"
 			},
 			"compressionCodec": "snappy"

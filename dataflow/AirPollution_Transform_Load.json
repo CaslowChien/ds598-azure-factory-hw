@@ -15,13 +15,6 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "Silver_Weather",
-						"type": "DatasetReference"
-					},
-					"name": "SinkWeather"
-				},
-				{
-					"dataset": {
 						"referenceName": "Silver_AirPollution",
 						"type": "DatasetReference"
 					},
@@ -105,15 +98,6 @@
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> SelectionAirPollution",
-				" sink(allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     format: 'parquet',",
-				"     umask: 0022,",
-				"     preCommands: [],",
-				"     postCommands: [],",
-				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true,",
-				"     partitionBy('hash', 1)) ~> SinkWeather",
 				"SelectionAirPollution sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     format: 'parquet',",

@@ -1,5 +1,5 @@
 {
-	"name": "Silver_AirPollution",
+	"name": "Silver_Weather_copy1",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorage1",

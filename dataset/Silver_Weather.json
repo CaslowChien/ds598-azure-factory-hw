@@ -10,7 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "2.5/silver",
+				"fileName": "Weather_Tranformed",
+				"folderPath": "2.5",
 				"fileSystem": "data"
 			},
 			"compressionCodec": "snappy"

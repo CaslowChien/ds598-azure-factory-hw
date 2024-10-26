@@ -47,13 +47,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "Silver_AirPollution",
+						"referenceName": "Silver_Weather",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "Silver_AirPollution_copy1",
+						"referenceName": "Silver_Weather_copy1",
 						"type": "DatasetReference"
 					}
 				]

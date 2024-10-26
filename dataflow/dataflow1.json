@@ -26,6 +26,10 @@
 				},
 				{
 					"name": "flattenAirPollution"
+				},
+				{
+					"name": "Corrected",
+					"description": "Corrected Timestamp\nCorrected location"
 				}
 			],
 			"scriptLines": [
@@ -91,7 +95,9 @@
 				"          nh3 = list.components.nh3",
 				"     ),",
 				"     skipDuplicateMapInputs: false,",
-				"     skipDuplicateMapOutputs: false) ~> flattenAirPollution"
+				"     skipDuplicateMapOutputs: false) ~> flattenAirPollution",
+				"flattenWeather derive(corrected_timestamp = iif(((length(char(timestamp))) <= 10), timestamp, NULL),",
+				"          city_id = ERROR_FUNCTION('')) ~> Corrected"
 			]
 		}
 	}

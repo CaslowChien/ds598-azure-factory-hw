@@ -10,6 +10,13 @@
 						"type": "DatasetReference"
 					},
 					"name": "Weather"
+				},
+				{
+					"dataset": {
+						"referenceName": "Bronze_Weather",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
 				}
 			],
 			"sinks": [
@@ -37,6 +44,9 @@
 				},
 				{
 					"name": "SelectionWeather"
+				},
+				{
+					"name": "flatten1"
 				}
 			],
 			"scriptLines": [
@@ -54,6 +64,18 @@
 				"     documentForm: 'documentPerLine',",
 				"     preferredFractionalType: 'float',",
 				"     wildcardPaths:['/*']) ~> Weather",
+				"source(output(",
+				"          message as string,",
+				"          cod as string,",
+				"          city_id as integer,",
+				"          calctime as double,",
+				"          cnt as integer,",
+				"          list as (dt as integer, main as (temp as double, feels_like as double, pressure as integer, humidity as integer, temp_min as double, temp_max as double), wind as (speed as double, deg as integer), clouds as (all as integer), weather as (id as integer, main as string, description as string, icon as string)[])[]",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     documentForm: 'documentPerLine') ~> source1",
 				"Weather foldDown(unroll(),",
 				"     mapColumn(",
 				"          cod,",
@@ -78,9 +100,9 @@
 				"     ),",
 				"     skipDuplicateMapInputs: false,",
 				"     skipDuplicateMapOutputs: false) ~> FlattenWeather",
-				"FlattenWeather derive(corrected_timestamp = iif(((length(toString(timestamp))) == 10), toInteger(timestamp), toInteger(null())),",
+				"flatten1 derive(corrected_timestamp = iif(((length(toString(timestamp))) == 10), toInteger(timestamp), toInteger(null())),",
 				"          location = 'Boston') ~> CorrectedWeather",
-				"CorrectedWeather filter(temp === toInteger(null()) || humidity === toInteger(null()) || timestamp === toInteger(null())) ~> FilterNullWeather",
+				"CorrectedWeather filter(!isNull(temp) && !isNull(humidity) && !isNull(timestamp)) ~> FilterNullWeather",
 				"FilterNullWeather derive(date_time = toTimestamp(toLong(corrected_timestamp)*1000),",
 				"          id = location+toString(corrected_timestamp),",
 				"          temp_C = round(temp-273.15),",
@@ -122,6 +144,30 @@
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> SelectionWeather",
+				"Weather foldDown(unrollMultiple(list,list.weather),",
+				"     mapColumn(",
+				"          message,",
+				"          cod,",
+				"          city_id,",
+				"          calctime,",
+				"          cnt,",
+				"          timestamp = list.dt,",
+				"          clouds_all = list.clouds.all,",
+				"          temp = list.main.temp,",
+				"          temp_min = list.main.temp_min,",
+				"          temp_max = list.main.temp_max,",
+				"          feels_like = list.main.feels_like,",
+				"          humidity = list.main.humidity,",
+				"          pressure = list.main.pressure,",
+				"          weather_description = list.weather.description,",
+				"          weather_icon = list.weather.icon,",
+				"          weather_id = list.weather.id,",
+				"          weather_main = list.weather.main,",
+				"          wind_deg = list.wind.deg,",
+				"          wind_speed = list.wind.speed",
+				"     ),",
+				"     skipDuplicateMapInputs: false,",
+				"     skipDuplicateMapOutputs: false) ~> flatten1",
 				"SelectionWeather sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     format: 'parquet',",

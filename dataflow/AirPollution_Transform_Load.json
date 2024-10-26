@@ -101,6 +101,7 @@
 				"SelectionAirPollution sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     format: 'parquet',",
+				"     partitionFileNames:['AirPollution_Transformed'],",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",

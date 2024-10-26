@@ -10,6 +10,10 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "*",
+					"type": "Expression"
+				},
 				"folderPath": "2.5/history",
 				"fileSystem": "data"
 			}

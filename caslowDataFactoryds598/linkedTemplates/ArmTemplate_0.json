@@ -460,8 +460,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"fileName": "AirPollution_Transformed",
-						"folderPath": "2.5",
+						"folderPath": "2.5/silver",
 						"fileSystem": "data"
 					},
 					"compressionCodec": "snappy"
@@ -486,7 +485,8 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"folderPath": "2.5/silver",
+						"fileName": "Weather_Tranformed",
+						"folderPath": "2.5",
 						"fileSystem": "data"
 					},
 					"compressionCodec": "snappy"
@@ -622,7 +622,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Silver_AirPollution_copy1')]",
+			"name": "[concat(parameters('factoryName'), '/Silver_Weather_copy1')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {

@@ -127,7 +127,7 @@
 				"SelectionWeather sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     format: 'parquet',",
-				"     partitionFileNames:['Silver_Weather'],",
+				"     partitionFileNames:['Weather_Tranformed'],",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",

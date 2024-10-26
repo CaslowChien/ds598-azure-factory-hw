@@ -460,7 +460,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"folderPath": "2.5",
+						"folderPath": "2.5/silver",
 						"fileSystem": "data"
 					},
 					"compressionCodec": "snappy"
@@ -485,7 +485,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"folderPath": "2.5",
+						"folderPath": "2.5/silver",
 						"fileSystem": "data"
 					},
 					"compressionCodec": "snappy"

@@ -1,5 +1,5 @@
 {
-	"name": "AirPollution_Transform_Load_copy1",
+	"name": "AirPollution_Transform_Load",
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
@@ -49,7 +49,7 @@
 				"     documentForm: 'documentPerLine') ~> AirPollution",
 				"FlattenAirPollution derive(corrected_timestamp = iif(((length(toString(timestamp))) == 10), toInteger(timestamp), toInteger(null())),",
 				"          location = 'Boston') ~> CorrectAirPollution",
-				"CorrectAirPollution filter(aqi != toInteger(null()) || corrected_timestamp != toInteger(null())) ~> FilterNullAirPollution",
+				"CorrectAirPollution filter(!isNull(aqi) && !isNull(corrected_timestamp)) ~> FilterNullAirPollution",
 				"FilterNullAirPollution derive(date_time = toTimestamp(toLong(corrected_timestamp)*1000),",
 				"          id = location+toString(corrected_timestamp),",
 				"          lon = -71.0589,",
